@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Football.Models.StaffMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="over-wrap tm-full-width">
+
+
+
+    <div class="tm-top-a-box tm-full-width tm-box-bg-1 ">
+        <div class="uk-container uk-container-center">
+            <section id="tm-top-a" class="tm-top-a uk-grid uk-grid-collapse" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+
+                <div class="uk-width-1-1 uk-row-first">
+                    <div class="uk-panel">
+                        <div class="uk-cover-background uk-position-relative head-wrap" style="height: 290px; background-image: url('images/head-bg.jpg');">
+                            <img class="uk-invisible" src="images/head-bg.jpg" alt="" height="290" width="1920">
+                            <div class="uk-position-cover uk-flex uk-flex-center head-title">
+                                <h1>Management</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="uk-container uk-container-center alt">
+        <ul class="uk-breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li class="uk-active">
+                <span>Players</span>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="uk-container uk-container-center">
+        <div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match="" data-uk-grid-margin="">
+            <div class="tm-main uk-width-medium-1-1 uk-row-first">
+                <main id="tm-content" class="tm-content">
+
+                    <div class="uk-container uk-container-center tt-gallery-top">
+                        <div class="uk-grid" data-uk-grid-match="">
+                            <div class="uk-width-medium-3-10 uk-width-small-1-1 title">Morbi velit vel nisl blandit</div>
+                            <div class="uk-width-medium-7-10 uk-width-small-1-1 text">Aenean aliquam, dolor eu lacinia pellentesque, dui arcu condimentum nisl, quis sollicitudin mi lorem quis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis sapien a ante rutrum pulvinar quis ac tellus. Proin facilisis dui at mollis tincidunt. Sed dignissim orci non arcu luctus pretium. Donec at ex aliquet, porttitor lacus eget, ullamcorper quam. Integer pellentesque egestas arcu, nec molestie leo sollicitudin et</div>
+                        </div>
+                    </div>
+
+                    <div class="list-players-wrapper">
+                        <div class="list-players-wrap" id="boundary">
+
+                            <div class="left-player">
+                                <img src="images/left-player-bg.png" alt="">
+                            </div>
+                            <div class="right-player">
+                                <img src="images/right-player-bg.png" alt="">
+                            </div>
+                            <div class="uk-container uk-container-center alt">
+                                <div class="uk-grid grid1 players-list">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="uk-width-large-1-4 uk-width-medium-1-2 uk-width-small-1-2 player-item ">
+                                            <div class="player-article">
+                                                <div class="wrapper">
+                                                    <div class="img-wrap">
+                                                        <div class="bio">
+                                                            <span>
+                                                                <a asp-action="StaffMember" asp-route-id="@item.Id">
+                                                                    bio
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                        <a asp-action="StaffMember" asp-route-id="@item.Id">
+                                                            <img src="~/images/@item.PhotoPath" class="img-polaroid" alt="Benjamin Mendoza" title="Benjamin Mendoza">
+                                                        </a>
+                                                        <ul class="socials">
+                                                            <li class="twitter">
+                                                                <a href="http://twitter.com/" target="_blank" rel="nofollow">
+                                                                </a>
+                                                            </li>
+                                                            <li class="facebook">
+                                                                <a href="http://facebook.com/" target="_blank" rel="nofollow">
+                                                                </a>
+                                                            </li>
+                                                            <li class="google-plus">
+                                                                <a href="https://plus.google.com/" target="_blank" rel="nofollow">
+                                                                </a>
+                                                            </li>
+                                                            <li class="pinterest">
+                                                                <a href="https://www.pinterest.com" target="_blank" rel="nofollow">
+                                                                </a>
+                                                            </li>
+                                                            <li class="linkedin">
+                                                                <a href="https://www.linkedin.com" target="_blank" rel="nofollow">
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="info">
+                                                        <div class="name">
+                                                            <h3>
+                                                                <a asp-action="StaffMember" asp-route-id="@item.Id">
+                                                                    @Html.DisplayFor(modelItem => item.Name)
+                                                                </a>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="position">
+                                                            @Html.DisplayFor(modelItem => item.ManagementPosition)
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </main>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@model Football.ViewModels.PagePlayersViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script src="~/js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/AjaxCall.js"></script>
+<div class="over-wrap tm-full-width">
+
+
+
+    <div class="tm-top-a-box tm-full-width tm-box-bg-1 ">
+        <div class="uk-container uk-container-center">
+            <section id="tm-top-a" class="tm-top-a uk-grid uk-grid-collapse" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+
+                <div class="uk-width-1-1 uk-row-first">
+                    <div class="uk-panel">
+                        <div class="uk-cover-background uk-position-relative head-wrap" style="height: 290px; background-image: url('images/head-bg.jpg');">
+                            <img class="uk-invisible" src="images/head-bg.jpg" alt="" height="290" width="1920">
+                            <div class="uk-position-cover uk-flex uk-flex-center head-title">
+                                <h1>@localizer["Players"]</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <div class="uk-container uk-container-center">
+        <div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match="" data-uk-grid-margin="">
+            <div class="tm-main uk-width-medium-1-1 uk-row-first">
+                <main id="tm-content" class="tm-content">
+
+                    <div class="uk-container uk-container-center tt-gallery-top">
+                        <div class="uk-grid" data-uk-grid-match="">
+                            <div class="uk-width-medium-3-10 uk-width-small-1-1 title">Morbi velit vel nisl blandit</div>
+                            <div class="uk-width-medium-7-10 uk-width-small-1-1 text">@Model.Text.HtmlCOntent</div>
+                        </div>
+                    </div>
+
+                    <div class="list-players-wrapper">
+                        <div class="uk-sticky-placeholder">
+                            <div class="button-group filter-button-group" data-uk-sticky="{top:70, boundary: true}">
+                                <div class="uk-container uk-container-center">
+                                    <div class="label-menu">OUR team</div>
+                                    <button class="active" data-filter="*">
+                                        all
+                                    </button>
+                                    <button data-filter=".tt_2a195f12da9f3f36da06e6097be7e451">
+                                        DEFENDER
+                                    </button>
+                                    <button data-filter=".tt_22c19cd174143e3b4c7ef40ae23c5d1a">
+                                        STRIKER
+                                    </button>
+                                    <button data-filter=".tt_81747b4426a9882884c1f83eda78844f">
+                                        GOALKEEPER
+                                    </button>
+                                    <button data-filter=".tt_4d957768dcc72908ab3b9e28dc867052">
+                                        MIDFIELDER
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-players-wrap" id="boundary">
+
+                            <div class="left-player">
+                                <img src="images/left-player-bg.png" alt="">
+                            </div>
+                            <div class="right-player">
+                                <img src="images/right-player-bg.png" alt="">
+                            </div>
+                            <div class="uk-container uk-container-center alt">
+                                <div  id="SetPlayersList" class="uk-grid grid1 players-list">
+                                        <div id="LoadingStatus"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
